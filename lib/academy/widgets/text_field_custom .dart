@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class TextFieldCustom  extends StatelessWidget {
   final TextEditingController? controller;
+  final String hint;
   const TextFieldCustom ({
     this.controller,
-    super.key});
+    super.key, required this.hint});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class TextFieldCustom  extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.search,),
-        hintText: 'Search by name',
+        hintText: hint,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(color: Colors.grey),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Video_Screens/two_min_gyan_view.dart';
+import 'package:flutter_application_1/academy/view/two_min_gyan_view.dart';
 
 class LiveWebinarView extends StatelessWidget {
   const LiveWebinarView({super.key});

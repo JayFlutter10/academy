@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Video_Screens/widgets/text_field_custom%20.dart';
+import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
 
 import '../../Video/views/video_main.dart';
+import '../view/certificate_view.dart';
 
 class VideoDetails extends StatelessWidget {
   final int videoNumber;
@@ -20,7 +21,7 @@ final bool isCompleted=false;
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextFieldCustom(),
+            TextFieldCustom(hint: 'Search by name',),
             Container(
               margin: EdgeInsets.symmetric(vertical: 15),
           decoration: BoxDecoration(

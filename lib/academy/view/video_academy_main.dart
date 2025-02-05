@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Video/views/video_main.dart';
 
+import 'certificate_view.dart';
+
 class VideoAcademy extends StatefulWidget {
   const VideoAcademy({super.key});
 

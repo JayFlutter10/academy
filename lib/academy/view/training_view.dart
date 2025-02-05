@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Video/views/video_main.dart';
-import 'package:flutter_application_1/Video_Screens/widgets/module_data.dart';
-import 'package:flutter_application_1/Video_Screens/widgets/text_field_custom%20.dart';
+import 'package:flutter_application_1/academy/widgets/module_data.dart';
+import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
+
+import 'certificate_view.dart';
 
 class TrainingView extends StatelessWidget {
    TrainingView({super.key});
@@ -20,7 +21,7 @@ final List<dynamic> data=[
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
-            TextFieldCustom(),
+            TextFieldCustom(hint: 'Search by name',),
             Expanded(
               child: ListView.builder(
                   itemCount: data.length,

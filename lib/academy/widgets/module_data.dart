@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Video_Screens/widgets/text_field_custom%20.dart';
-import 'package:flutter_application_1/Video_Screens/widgets/video_details.dart';
+import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
+import 'package:flutter_application_1/academy/widgets/video_details.dart';
 
 import '../../Video/views/video_main.dart';
+import '../view/certificate_view.dart';
 
 class ModuleData extends StatelessWidget {
   final String headline;
@@ -22,7 +23,7 @@ class ModuleData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
           
-              TextFieldCustom(),
+              TextFieldCustom(hint: 'Search by name',),
               Row(
                 children: [
                   customContainer(

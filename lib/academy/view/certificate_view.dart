@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Video_Screens/widgets/progress_view.dart';
+import 'package:flutter_application_1/academy/widgets/progress_view.dart';
 
 class CertificateView extends StatefulWidget {
   const CertificateView({super.key});
@@ -58,6 +58,8 @@ class _CertificateViewState extends State<CertificateView> {
               height: 50,
               child: Expanded(
                 child: ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: tabData.length,
                   itemBuilder: (context,index){
