@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
 import 'package:flutter_application_1/academy/widgets/video_details.dart';
 
-import '../../Video/views/video_main.dart';
 import '../view/certificate_view.dart';
 
 class ModuleData extends StatelessWidget {

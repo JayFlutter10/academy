@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
-
-import '../../Video/views/video_main.dart';
 import '../view/certificate_view.dart';
 
 class VideoDetails extends StatelessWidget {
@@ -119,7 +117,7 @@ Widget _stackCustom(){
                       text:'How to Share Marketing Leads on BizBooster'
                   )
                 ]
-            )))
+            ))),
           ],
         ),
       ),
