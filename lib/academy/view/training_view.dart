@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/academy/widgets/module_data.dart';
-import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
 
 import 'certificate_view.dart';
 
@@ -21,7 +20,21 @@ final List<dynamic> data=[
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
-            TextFieldCustom(hint: 'Search by name',),
+            TextField(
+
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search,),
+                hintText: 'Search by name',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+              ),
+            ),
             Expanded(
               child: ListView.builder(
                   itemCount: data.length,

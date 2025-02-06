@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
 import 'package:flutter_application_1/academy/widgets/video_details.dart';
 
 import '../view/certificate_view.dart';
@@ -21,8 +20,22 @@ class ModuleData extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-          
-              TextFieldCustom(hint: 'Search by name',),
+
+              TextField(
+
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search,),
+                  hintText: 'Search by name',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                ),
+              ),
               Row(
                 children: [
                   customContainer(

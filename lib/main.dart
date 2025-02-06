@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/academy/view/video_academy_main.dart';
 import 'Support/Views/support_view.dart';
 import 'academy/view/certificate_view.dart';
 import 'academy/view/live_webinar_view.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  SupportView(),
+      home:  VideoAcademy(),
     );
   }
 }

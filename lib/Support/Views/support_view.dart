@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Support/Views/multi_support_view.dart';
-import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
+import 'package:flutter_application_1/Support/Views/phone_support_view.dart';
+
+import 'chat_view.dart';
+import 'email_view.dart';
 
 class SupportView extends StatelessWidget {
-  SupportView({super.key});
+   SupportView({super.key});
 final List<dynamic> faq=[
   {
     'Ques':'1. How can I reset my password?',
@@ -26,6 +28,7 @@ final List<dynamic> faq=[
         'Ans':''
   },
 ];
+final searchController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
@@ -39,10 +42,24 @@ final List<dynamic> faq=[
           spacing: height*0.02,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextFieldCustom(hint: 'Search your query',),
+
+          ///On search if the query is not available show th following page = SearchSupportView();
+          TextField(
+          controller: searchController,
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.search,),
+            hintText: 'Search your query',
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(color: Colors.grey),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(color: Colors.grey),
+            ),
+          ),
+        ),
             Text("Common FAQs",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-            // Text(data[0]['Ques'].toString()),
-            // Text(data[0]['Ans'].toString()),
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.only(top: 10,),
@@ -56,10 +73,17 @@ final List<dynamic> faq=[
                   ),
                   margin: EdgeInsets.all(5),
                   child: ExpansionTile(
+                    shape:RoundedRectangleBorder(
+                        side: BorderSide.none,
+                        borderRadius: BorderRadius.zero
+                    ) ,
+                    collapsedShape: RoundedRectangleBorder(
+                      side: BorderSide.none,
+                      borderRadius: BorderRadius.zero
+                    ),
                     childrenPadding: EdgeInsets.only(left: 10),
-                    // collapsedIconColor: Colors.black,
-                    // iconColor: Colors.blue,
-                    showTrailingIcon: false,
+
+
                     title: Text(faq[index]['Ques'],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
                   children: [
                     Padding(
@@ -70,12 +94,53 @@ final List<dynamic> faq=[
                 );
               }),
             ),
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>MultiSupportView()));
-            }, child: Text('data')),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _supportColumn(
+                    icon:Icons.wechat_outlined,
+                    text: 'Chat with us',
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatView()));
+                    }
+                ),
+                _supportColumn(
+                    icon:Icons.call,
+                    text: 'Phone Support',
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PhoneSupportView()));
+                    }
+                ),
+                _supportColumn(
+                    icon:Icons.email_rounded,
+                    text: 'Email Support',
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EmailView()));
+                    }
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
+}
+Widget _supportColumn({IconData? icon, String? text, VoidCallback? onTap}){
+  return Container(
+    margin: EdgeInsets.all(8),
+    padding: EdgeInsets.all(5),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10)
+    ),
+    child: InkWell(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Icon(icon,size: 40,color: Color.fromRGBO(0,84,182, 1),),
+          Text(text!,style: TextStyle(fontSize: 14,color: Colors.black87,fontWeight: FontWeight.w500),),
+        ],
+      ),
+    ),
+  );
 }

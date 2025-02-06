@@ -4,14 +4,14 @@ import 'package:flutter_application_1/Support/Views/email_view.dart';
 import 'package:flutter_application_1/Support/Views/phone_support_view.dart';
 import '../../academy/view/certificate_view.dart';
 
-class MultiSupportView extends StatefulWidget {
-  const MultiSupportView({super.key});
+class SearchSupportView extends StatefulWidget {
+  const SearchSupportView({super.key});
 
   @override
-  State<MultiSupportView> createState() => _MultiSupportViewState();
+  State<SearchSupportView> createState() => _SearchSupportViewState();
 }
 
-class _MultiSupportViewState extends State<MultiSupportView> {
+class _SearchSupportViewState extends State<SearchSupportView> {
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
@@ -51,7 +51,7 @@ class _MultiSupportViewState extends State<MultiSupportView> {
                     }
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

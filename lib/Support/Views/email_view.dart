@@ -99,10 +99,16 @@ class EmailView extends StatelessWidget {
                       ),
                       margin: EdgeInsets.all(5),
                       child: ExpansionTile(
+                        shape:RoundedRectangleBorder(
+                            side: BorderSide.none,
+                            borderRadius: BorderRadius.zero
+                        ) ,
+                        collapsedShape: RoundedRectangleBorder(
+                            side: BorderSide.none,
+                            borderRadius: BorderRadius.zero
+                        ),
                         childrenPadding: EdgeInsets.only(left: 10),
-                        // collapsedIconColor: Colors.black,
-                        // iconColor: Colors.blue,
-                        showTrailingIcon: false,
+
                         title: Text(faq[index]['Ques'],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
                         children: [
                           Padding(

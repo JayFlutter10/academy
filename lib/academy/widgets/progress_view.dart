@@ -104,7 +104,7 @@ int selection=0;
                     setState(() {
                       selection=0;
                     });
-                  },selection==0?true:false,
+                  },selection==0?true:true,
 
                   ),
                   _dash(width),
@@ -112,7 +112,7 @@ int selection=0;
                     setState(() {
                       selection=1;
                     });
-                  },selection==1?true:false),
+                  },selection==1?true:true),
                   _dash(width),
                   _customTimeline('Appointment\n Letter',(){
                     setState(() {
@@ -155,6 +155,20 @@ int selection=0;
                       )
                     ],
                   ),
+                ),
+                customContainer(
+                 bRadius: 10,
+                vPadding: 10,
+                hPadding: 10,
+                width: width*0.5 ,
+                  child: Row(
+
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.lock),
+                    Text('Download Certificate'),
+                  ],
+                ),
                 ),
                 customContainer(
                     margin: 10,
