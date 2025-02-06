@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Support/Views/support.dart';
+import 'package:flutter_application_1/Support/Views/multi_support_view.dart';
 import 'package:flutter_application_1/academy/widgets/text_field_custom%20.dart';
 
-class FaqView extends StatelessWidget {
-   FaqView({super.key});
-final List<dynamic> data=[
+class SupportView extends StatelessWidget {
+  SupportView({super.key});
+final List<dynamic> faq=[
   {
     'Ques':'1. How can I reset my password?',
     'Ans':'To reset your password:\n1.Click on the "Forgot Password" link on the login page.\n2.Enter the email address associated with your account.\n3.Check your email inbox for a password reset link.\n4.Follow the instructions in the email to create a new password.\nIf you don’t receive the email within a few minutes, check your spam folder or contact support for assistance.'
@@ -46,7 +46,7 @@ final List<dynamic> data=[
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.only(top: 10,),
-                  itemCount: data.length,
+                  itemCount: faq.length,
                   itemBuilder: (context,index){
                 return  Container(
                   padding: EdgeInsets.symmetric(vertical: 4),
@@ -60,19 +60,19 @@ final List<dynamic> data=[
                     // collapsedIconColor: Colors.black,
                     // iconColor: Colors.blue,
                     showTrailingIcon: false,
-                    title: Text(data[index]['Ques'],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                    title: Text(faq[index]['Ques'],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left:16.0,),
-                      child: Text(data[index]['Ans']),
+                      child: Text(faq[index]['Ans']),
                     ),
                   ],),
                 );
               }),
             ),
             ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Support()));
-            }, child: Text('data'))
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MultiSupportView()));
+            }, child: Text('data')),
           ],
         ),
       ),
