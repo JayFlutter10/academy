@@ -18,7 +18,6 @@ class SemiCircleChart extends StatelessWidget {
           angle: 140.159,
           child: Stack(
             children: [
-
               PieChart(
                 PieChartData(
                   startDegreeOffset: 180,

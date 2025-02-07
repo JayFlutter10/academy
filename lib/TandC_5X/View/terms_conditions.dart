@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/academy/view/certificate_view.dart';
 
 class TermsConditions extends StatelessWidget {
    TermsConditions({super.key});
@@ -27,48 +28,53 @@ class TermsConditions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
+    final double width=MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Terms & Conditions'),
       ),
       body: Container(
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.all(8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Terms & Conditions for 5X Guarantee',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-            SizedBox(
-              height: height*0.8,
+            Expanded(
+
               child: ListView.builder(
-
-                padding: EdgeInsets.only(top: 10),
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.only(top: 15),
                 shrinkWrap: true,
-
                 itemCount: ques.length,
                  itemBuilder: (BuildContext context, int index) {
-                   return ExpansionTile(
-                     shape:RoundedRectangleBorder(
-                         side: BorderSide.none,
-                         borderRadius: BorderRadius.zero
-                     ) ,
-                     collapsedShape: RoundedRectangleBorder(
-                         side: BorderSide.none,
-                         borderRadius: BorderRadius.zero
-                     ),
-                     childrenPadding: EdgeInsets.only(left: 10),
-                     title: Row(
+                   return customContainer(
+                     margin: 7,
+                     bRadius: 2,
+                     child: ExpansionTile(
+                       shape:RoundedRectangleBorder(
+                           side: BorderSide.none,
+                           borderRadius: BorderRadius.zero
+                       ) ,
+                       collapsedShape: RoundedRectangleBorder(
+                           side: BorderSide.none,
+                           borderRadius: BorderRadius.zero
+                       ),
+                       childrenPadding: EdgeInsets.only(left: 10),//rgba(0, 63, 136, 1)
+                       title: Row(
+                         children: [
+                           index!=3?customContainer(bRadius: 5, vPadding:2,hPadding: 2,child: CircleAvatar(backgroundColor:Color.fromRGBO(0, 63, 136, 1),radius: 21,child: Text(ques[index]['Icon'],style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),)):customContainer(bRadius: 5,vPadding: 2,hPadding: 2,child: CircleAvatar(backgroundColor:Color.fromRGBO(0, 63, 136, 1),radius:22,child: Icon(Icons.diamond,size: 35,color: Colors.white,))),
+                           SizedBox(width: width*0.05,),
+                           Expanded(child: Text(ques[index]['Ques'],style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,),maxLines: 2,)),
+                         ],
+                       ),
                        children: [
-                         index!=3?CircleAvatar(child: Text(ques[index]['Icon']),):CircleAvatar(child: Icon(Icons.diamond)),
-                         Expanded(child: Text(ques[index]['Ques'],style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,),maxLines: 2,)),
+                         Padding(
+                           padding: const EdgeInsets.only(left:16.0,),//rgba(133, 133, 133, 1)
+                           child: Text(ques[index]['Ans'],style: TextStyle(color: Color.fromRGBO(133, 133, 133, 0.8),fontWeight: FontWeight.w500),),
+                         ),
                        ],
                      ),
-                     children: [
-                       Padding(
-                         padding: const EdgeInsets.only(left:16.0,),
-                         child: Text(ques[index]['Ans']),
-                       ),
-                     ],
                    );
                  }
               ),

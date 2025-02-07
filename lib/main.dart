@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/TandC_5X/View/terms_conditions.dart';
 import 'package:flutter_application_1/academy/view/video_academy_main.dart';
+import 'package:flutter_application_1/chart.dart';
+import 'package:flutter_application_1/favourite/view/favourite_view_screen.dart';
 import 'Support/Views/support_view.dart';
 import 'academy/view/certificate_view.dart';
 import 'academy/view/live_webinar_view.dart';
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  VideoAcademy(),
+      home:  FavouriteViewScreen(),
     );
   }
 }

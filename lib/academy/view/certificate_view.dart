@@ -130,22 +130,46 @@ class _CertificateViewState extends State<CertificateView> {
                   ),
                 ),
               ],
-            ) : Text(details[_selectedIndexTwo],style: TextStyle(fontSize: 14),maxLines: 6),
+            ) :
+
+            ///Details
+            ExpansionTile(
+              showTrailingIcon: false,
+              shape:RoundedRectangleBorder(
+                  side: BorderSide.none,
+                  borderRadius: BorderRadius.zero
+              ) ,
+              collapsedShape: RoundedRectangleBorder(
+                  side: BorderSide.none,
+                  borderRadius: BorderRadius.zero
+              ),
+              childrenPadding: EdgeInsets.only(left: 0),
+              title: Row(
+                children: [
+                  Expanded(child: Text(details[_selectedIndexTwo],style: TextStyle(fontSize: 14),maxLines: 4,)),
+                ],
+              ),
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left:16.0,),
+                  child: Text(details[_selectedIndexTwo]),
+                ),
+              ],
+            ),
+            //Text(details[_selectedIndexTwo],style: TextStyle(fontSize: 14),maxLines: 6),
           ),
           Text("Next Videos",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
             //Builder for Video Tutorial
             Column(
               children: [
-                Container(
-                  margin: EdgeInsets.only(top: 2),
-                  height: height*0.5,
-                  child: ListView.builder(
-                      itemCount:7,
-                      itemBuilder: (context,index){
-                        int pi=index+1;
-                        return _videos(pi.toString());
-                      }),
-                ),
+                ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount:7,
+                    itemBuilder: (context,index){
+                      int pi=index+1;
+                      return _videos(pi.toString());
+                    }),
                 Center(child: Text("Complete all the videos to unlock your documents ",style: TextStyle(fontSize: 14,decoration: TextDecoration.underline),)),
                 Center(child: InkWell(
                     onTap: (){
