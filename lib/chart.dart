@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter_application_1/academy/view/certificate_view.dart';
 
 class SemiCircleChart extends StatelessWidget {
-  const  SemiCircleChart({super.key});
-
+    SemiCircleChart({super.key});
+final List<dynamic> data=[
+  {
+    'key':'Returns',
+    'value':'4 Lakh'
+  },
+  {
+    'key':'Leads',
+    'value':'120 Leads'
+  },
+];
   @override
   Widget build(BuildContext context) {
     final double height=MediaQuery.of(context).size.height;
 
     //Values of both variables always should be less then 800 always
-    final double firstVal=500;
-    final double secondVal=300;
+    final double firstVal=100;
+    final double secondVal=400;
 
     final double value=firstVal*100/200;
     final double valueTwo=secondVal*100/200;
@@ -18,8 +28,8 @@ class SemiCircleChart extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        child: SizedBox(
-          height: 410,
+        child: Container(
+          height: 240,
           child: Stack(
             children: [
 
@@ -34,7 +44,7 @@ class SemiCircleChart extends StatelessWidget {
                     PieChartData(
                       startDegreeOffset: 340,
                       sectionsSpace:0,
-                      centerSpaceRadius: 135,
+                      centerSpaceRadius: 100,
                       sections: [
 
                         PieChartSectionData(
@@ -72,49 +82,48 @@ class SemiCircleChart extends StatelessWidget {
                   ),
                 ),
                   //Arrow
-                  Transform.rotate(
-                    transformHitTests:false,
-                    angle: 140.15,
-                    child: PieChart(
-                      PieChartData(
-                        startDegreeOffset: 340,
-                        sectionsSpace:0,
-                        centerSpaceRadius: 158,
-                        sections: [
-                          PieChartSectionData(
-                            value: 200,
-                            color: Colors.transparent,
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                          //Outlined
-                          PieChartSectionData(
-                            value:400-value,
-                            color: Colors.transparent,
-                            borderSide: BorderSide(color: Colors.transparent),
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                          //Filled
-                          PieChartSectionData(
-                            value: value,
-                            color:  Color.fromRGBO(0, 63, 136, 1),
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                          PieChartSectionData(
-                            value: 200,
-                            color: Colors.transparent,
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  // Transform.rotate(
+                  //   transformHitTests:false,
+                  //   angle: 140.15,
+                  //   child: PieChart(
+                  //     PieChartData(
+                  //       startDegreeOffset: 340,
+                  //       sectionsSpace:0,
+                  //       centerSpaceRadius: 158,
+                  //       sections: [
+                  //         PieChartSectionData(
+                  //           value: 200,
+                  //           color: Colors.transparent,
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //         //Outlined
+                  //         PieChartSectionData(
+                  //           value:400-value,
+                  //           color: Colors.transparent,
+                  //           borderSide: BorderSide(color: Colors.transparent),
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //         //Filled
+                  //         PieChartSectionData(
+                  //           value: value,
+                  //           color:  Color.fromRGBO(0, 63, 136, 1),
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //         PieChartSectionData(
+                  //           value: 200,
+                  //           color: Colors.transparent,
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
-
               //Small Arc Circle
               Stack(
                 children:[
@@ -126,7 +135,7 @@ class SemiCircleChart extends StatelessWidget {
                       PieChartData(
                         startDegreeOffset: 340,
                         sectionsSpace:0,
-                        centerSpaceRadius: 100,
+                        centerSpaceRadius: 50,
                         sections: [
                           PieChartSectionData(
                             value: 200,
@@ -162,53 +171,86 @@ class SemiCircleChart extends StatelessWidget {
                     ),
                   ),
                   //Arrow
-                  Transform.rotate(
-                    transformHitTests:false,
-                    angle: 140.15,
-                    child: PieChart(
-                      PieChartData(
-                        startDegreeOffset: 340,
-                        sectionsSpace:0,
-                        centerSpaceRadius: 125,
-                        sections: [
-                          PieChartSectionData(
-                            value: 200,
-                            color: Colors.transparent,
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                          //Outlined
-                          PieChartSectionData(
-                            value:valueTwo,
-                            color: Colors.green,
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                          //Filled
-                          PieChartSectionData(
-                            value: 400-valueTwo,
-                            color:  Colors.transparent,
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                          PieChartSectionData(
-                            value: 200,
-                            color: Colors.transparent,
-                            radius: 2,
-                            showTitle: false,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  // Transform.rotate(
+                  //   transformHitTests:false,
+                  //   angle: 140.15,
+                  //   child: PieChart(
+                  //     PieChartData(
+                  //       startDegreeOffset: 340,
+                  //       sectionsSpace:0,
+                  //       centerSpaceRadius: 125,
+                  //       sections: [
+                  //         PieChartSectionData(
+                  //           value: 200,
+                  //           color: Colors.transparent,
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //         //Outlined
+                  //         PieChartSectionData(
+                  //           value:valueTwo,
+                  //           color: Colors.green,
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //         //Filled
+                  //         PieChartSectionData(
+                  //           value: 400-valueTwo,
+                  //           color:  Colors.transparent,
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //         PieChartSectionData(
+                  //           value: 200,
+                  //           color: Colors.transparent,
+                  //           radius: 2,
+                  //           showTitle: false,
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
 
               //Text in Chart
-              // Column()
+              Align(
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(''),
+                    Column(
+                      children: [
+                        Text('5X',style: TextStyle(fontSize: 18),),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                          child: Divider(thickness: 4,),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          children: [
+                            Text(data[0]['key'].toString(),style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
+                            Text(data[0]['value'].toString()),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(data[1]['key'].toString(),style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500)),
+                            Text(data[1]['value'].toString()),
+                          ],
+                        ),
+                      ],
+                    )
 
-              // Lines pointing towards the chart
-              //_line()
+                  ],
+                ),
+              )
+
             ],
           ),
         ),
@@ -217,11 +259,3 @@ class SemiCircleChart extends StatelessWidget {
   }
 }
 
-Widget _line(){
-  return Row(
-    children: [
-      Icon(Icons.circle,size: 6,),
-      Container( decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.black),height: 1,width: 50,),
-    ],
-  );
-}
