@@ -1,139 +1,214 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'dart:math' as math;
-
-import 'package:flutter_application_1/academy/view/certificate_view.dart';
 
 class SemiCircleChart extends StatelessWidget {
-   SemiCircleChart({super.key});
-  final double value=6000/100;
+  const  SemiCircleChart({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final double height=MediaQuery.of(context).size.height;
+
+    //Values of both variables always should be less then 800 always
+    final double firstVal=500;
+    final double secondVal=300;
+
+    final double value=firstVal*100/200;
+    final double valueTwo=secondVal*100/200;
+
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
-        height: 300,
-        child: Transform.rotate(
-          angle: 140.159,
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: 410,
           child: Stack(
             children: [
-              PieChart(
-                PieChartData(
-                  startDegreeOffset: 180,
-                  sectionsSpace:0,
-                  centerSpaceRadius: 125,
-                  sections: [
-                    PieChartSectionData(
-                      value: 38.3,
-                      color: Color.fromRGBO(0, 63, 136, 1),
-                      radius: 20,
-                      showTitle: false,
-                    ),
-                    PieChartSectionData(
-                      value: 100,
-                      color: Colors.transparent,
-                      radius: 10,
-                      showTitle: false,
-                    ),
-                    PieChartSectionData(
-                      value: 61.3,
-                      color: Colors.transparent,
-                      borderSide: BorderSide(color: Color.fromRGBO(0, 63,136, 0.19)),
-                      radius: 20,
-                      showTitle: false,
-                    ),
-                  ],
-                ),
-              ),
-              PieChart(
-                PieChartData(
-                  startDegreeOffset: 130,
-                  sectionsSpace: 0,
-                  centerSpaceRadius: 95,
-                  sections: [
-                    PieChartSectionData(
-                      value: 65,
-                      color: Colors.transparent,
-                      borderSide: BorderSide(color: Color.fromRGBO(10, 200, 10, 0.11)),
-                      radius: 20,
-                      showTitle: false,
-                    ),
-                    PieChartSectionData(
-                      value: 100,
-                      color: Colors.transparent,
-                      radius: 10,
-                      showTitle: false,
-                    ),
-                    PieChartSectionData(
-                      value: 32.8,
-                      color: Color.fromRGBO(3, 118, 3, 1),
-                      radius: 20,
-                      showTitle: false,
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
-                left: 90,
-                right: 110,
-                bottom: 70,
-                top: 70,
-                child: Transform.rotate(
-                  angle:60.911,
-                  child: Column(
-                    children: [
-                      Text(
-                        'Returns',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
+
+              //Big Arc Circle
+              Stack(
+                children:[
+                  //Arc
+                  Transform.rotate(
+                  transformHitTests:false,
+                  angle: 140.15,
+                  child: PieChart(
+                    PieChartData(
+                      startDegreeOffset: 340,
+                      sectionsSpace:0,
+                      centerSpaceRadius: 135,
+                      sections: [
+
+                        PieChartSectionData(
+                          value: 200,
+                          color: Colors.transparent,
+                          radius: 20,
+                          showTitle: false,
                         ),
-                      ),
-                      Text(
-                        '4 Lakh',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
+
+                        //Outlined
+                        PieChartSectionData(
+                          value:400-value,
+                          color: Colors.transparent,
+                          borderSide: BorderSide(
+
+                              color: Color.fromRGBO(0, 63,136, 0.19)),
+                          radius: 20,
+                          showTitle: false,
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Leads',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
+                        //Filled
+                        PieChartSectionData(
+                          value: value,
+                          color:  Color.fromRGBO(0, 63, 136, 1),
+                          radius: 20,
+                          showTitle: false,
                         ),
-                      ),
-                      Text(
-                        '120 Leads',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
+                        PieChartSectionData(
+                          value: 200,
+                          color: Colors.transparent,
+                          radius: 20,
+                          showTitle: false,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
+                  //Arrow
+                  Transform.rotate(
+                    transformHitTests:false,
+                    angle: 140.15,
+                    child: PieChart(
+                      PieChartData(
+                        startDegreeOffset: 340,
+                        sectionsSpace:0,
+                        centerSpaceRadius: 158,
+                        sections: [
+                          PieChartSectionData(
+                            value: 200,
+                            color: Colors.transparent,
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                          //Outlined
+                          PieChartSectionData(
+                            value:400-value,
+                            color: Colors.transparent,
+                            borderSide: BorderSide(color: Colors.transparent),
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                          //Filled
+                          PieChartSectionData(
+                            value: value,
+                            color:  Color.fromRGBO(0, 63, 136, 1),
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                          PieChartSectionData(
+                            value: 200,
+                            color: Colors.transparent,
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              // Lines connecting to the
-              Positioned(
-                top: 210,
-                left: 135,
-                child: Transform.rotate(
-                  angle: 300.35,
-                  child: _line(),
-                ),
-              ),
-              Positioned(
-                top: 130,
 
-                left: 70,
-                child: Transform.rotate(
-                  angle: 145.1,
-                  child: _line()
-                ),
+              //Small Arc Circle
+              Stack(
+                children:[
+                  //Arc
+                  Transform.rotate(
+                    transformHitTests:false,
+                    angle: 140.15,
+                    child: PieChart(
+                      PieChartData(
+                        startDegreeOffset: 340,
+                        sectionsSpace:0,
+                        centerSpaceRadius: 100,
+                        sections: [
+                          PieChartSectionData(
+                            value: 200,
+                            color: Colors.transparent,
+                            radius: 20,
+                            showTitle: false,
+                          ),
+                          //Outlined
+                          PieChartSectionData(
+                            value:valueTwo,
+                            color: Colors.green,
+                            radius: 20,
+                            showTitle: false,
+                          ),
+                          //Filled
+                          PieChartSectionData(
+                            value: 400-valueTwo,
+                            color:  Colors.transparent,
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(0, 63,136, 0.19)
+                            ),
+                            radius: 20,
+                            showTitle: false,
+                          ),
+                          PieChartSectionData(
+                            value: 200,
+                            color: Colors.transparent,
+                            radius: 20,
+                            showTitle: false,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  //Arrow
+                  Transform.rotate(
+                    transformHitTests:false,
+                    angle: 140.15,
+                    child: PieChart(
+                      PieChartData(
+                        startDegreeOffset: 340,
+                        sectionsSpace:0,
+                        centerSpaceRadius: 125,
+                        sections: [
+                          PieChartSectionData(
+                            value: 200,
+                            color: Colors.transparent,
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                          //Outlined
+                          PieChartSectionData(
+                            value:valueTwo,
+                            color: Colors.green,
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                          //Filled
+                          PieChartSectionData(
+                            value: 400-valueTwo,
+                            color:  Colors.transparent,
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                          PieChartSectionData(
+                            value: 200,
+                            color: Colors.transparent,
+                            radius: 2,
+                            showTitle: false,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
+
+              //Text in Chart
+              // Column()
+
+              // Lines pointing towards the chart
+              //_line()
             ],
           ),
         ),
@@ -141,6 +216,7 @@ class SemiCircleChart extends StatelessWidget {
     );
   }
 }
+
 Widget _line(){
   return Row(
     children: [
