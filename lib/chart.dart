@@ -28,11 +28,10 @@ final List<dynamic> data=[
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: 240,
           child: Stack(
             children: [
-
               //Big Arc Circle
               Stack(
                 children:[
@@ -81,49 +80,9 @@ final List<dynamic> data=[
                     ),
                   ),
                 ),
-                  //Arrow
-                  // Transform.rotate(
-                  //   transformHitTests:false,
-                  //   angle: 140.15,
-                  //   child: PieChart(
-                  //     PieChartData(
-                  //       startDegreeOffset: 340,
-                  //       sectionsSpace:0,
-                  //       centerSpaceRadius: 158,
-                  //       sections: [
-                  //         PieChartSectionData(
-                  //           value: 200,
-                  //           color: Colors.transparent,
-                  //           radius: 2,
-                  //           showTitle: false,
-                  //         ),
-                  //         //Outlined
-                  //         PieChartSectionData(
-                  //           value:400-value,
-                  //           color: Colors.transparent,
-                  //           borderSide: BorderSide(color: Colors.transparent),
-                  //           radius: 2,
-                  //           showTitle: false,
-                  //         ),
-                  //         //Filled
-                  //         PieChartSectionData(
-                  //           value: value,
-                  //           color:  Color.fromRGBO(0, 63, 136, 1),
-                  //           radius: 2,
-                  //           showTitle: false,
-                  //         ),
-                  //         PieChartSectionData(
-                  //           value: 200,
-                  //           color: Colors.transparent,
-                  //           radius: 2,
-                  //           showTitle: false,
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
+
               //Small Arc Circle
               Stack(
                 children:[
