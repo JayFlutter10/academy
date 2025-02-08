@@ -108,8 +108,8 @@ class _CertificateViewState extends State<CertificateView> {
                         child: ListView.builder(
                             itemCount: number.length,
                             itemBuilder: (context,index){
-                              int indexn=6-index;
-                              return _rating(width*0.25, width*0.21, (indexn-1).toString(), number[index].toString()) ;
+                              int indexNo=6-index;
+                              return _rating(width*0.25, width*0.21, (indexNo-1).toString(), number[index].toString()) ;
                             }),
                       ),
           
@@ -312,7 +312,7 @@ Widget customContainer({
 
         boxShadow: [
           BoxShadow(
-            color: shadowColor ?? Colors.grey.withOpacity(0.3),
+            color: shadowColor ?? Colors.grey.shade100,
             blurRadius: shadowBlurRadius ?? 1.0,
             offset: shadowOffset ?? const Offset(0.5, 0.5),
           ),

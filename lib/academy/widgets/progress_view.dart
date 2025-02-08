@@ -344,7 +344,7 @@ Widget customContainer({
 
         boxShadow: [
           BoxShadow(
-            color: shadowColor ?? Colors.grey.withOpacity(0.3),
+            color: shadowColor ?? Colors.grey.shade100,
             blurRadius: shadowBlurRadius ?? 1.0,
             offset: shadowOffset ?? const Offset(0.5, 0.5),
           ),
