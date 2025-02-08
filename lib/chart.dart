@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter_application_1/academy/view/certificate_view.dart';
 
 class SemiCircleChart extends StatelessWidget {
     SemiCircleChart({super.key});
-final List<dynamic> data=[
+    final List<dynamic> data=[
   {
     'key':'Returns',
     'value':'4 Lakh'
@@ -14,11 +13,11 @@ final List<dynamic> data=[
     'value':'120 Leads'
   },
 ];
+
   @override
   Widget build(BuildContext context) {
-    final double height=MediaQuery.of(context).size.height;
 
-    //Values of both variables always should be less then 800 always
+    //Values of both variables [firstVal,secondVal] always should be less then 800 always
     final double firstVal=100;
     final double secondVal=400;
 
@@ -28,6 +27,7 @@ final List<dynamic> data=[
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(2),
         child: SizedBox(
           height: 240,
           child: Stack(
@@ -217,4 +217,3 @@ final List<dynamic> data=[
     );
   }
 }
-
