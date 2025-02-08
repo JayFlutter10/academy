@@ -77,11 +77,12 @@ class _FavouriteViewScreenState extends State<FavouriteViewScreen> {
                             Row(
                               children: [
                                 customContainer(
+                                  borderColor: Colors.transparent,
                                     assetsImg: 'assets/img.png',
                                     bRadius: 10,
-                                    height: 80,
+                                    height: height*0.1,
                                     width: width * 0.28,
-                                    margin: 4,
+                                    margin: 0,
                                     containerColor: Colors.transparent
                                 ),
                                 Expanded(
@@ -180,7 +181,7 @@ class _FavouriteViewScreenState extends State<FavouriteViewScreen> {
                                         },
                                         child: Icon(
                                           CupertinoIcons.suit_heart_fill,
-                                          size: 30,
+                                          size: height*0.026,
                                           color: Color.fromRGBO(0, 80, 157, 1),
                                         )
                                     ),

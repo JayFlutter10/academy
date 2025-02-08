@@ -90,7 +90,7 @@ Widget customContainer({
         color: gradient == null ? containerColor ?? Colors.white : null,
         gradient: gradient,
         border: Border.all(color: borderColor?? Colors.grey.shade100, width: 0.5),
-        borderRadius: BorderRadius.circular(bRadius!),
+        borderRadius: BorderRadius.circular(bRadius),
         image: (networkImg != null)
             ? DecorationImage(image: NetworkImage(networkImg), fit: BoxFit.cover)
             : (assetsImg != null)
@@ -99,7 +99,7 @@ Widget customContainer({
 
         boxShadow: [
           BoxShadow(
-            color: shadowColor ?? Colors.grey.withOpacity(0.3),
+            color: shadowColor ?? Colors.grey.shade100,
             blurRadius: shadowBlurRadius ?? 1.0,
             offset: shadowOffset ?? const Offset(0.5, 0.5),
           ),
